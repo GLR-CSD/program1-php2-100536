@@ -18,13 +18,14 @@
         <th>Afbeelding</th>
         <th>Prijs</th>
     </tr>
-    <?php foreach ($album as $album): ?>
+    <?php foreach ($albums as $album): ?>
         <tr>
             <td><?= $album->getID() ?></td>
             <td><?= $album->getNaam() ?></td>
             <td><?= $album->getArtiesten() ?></td>
-            <td><?= $album->getResease_date() ?></td>
-            <td><?= $album->getURL() ?></td>
+            <td><?= $album->getReleaseDate() ?></td>
+            <td><a href="<?= $album->getURL() ?>"><?= $album->getURL() ?></a></td>
+            <td><img src="public/img/<?= $album->getAfbeelding() ?>" height="60px"/></td>
             <td><?= $album->getAfbeelding() ?></td>
             <td><?= $album->getPrijs() ?></td>
         </tr>

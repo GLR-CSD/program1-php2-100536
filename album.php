@@ -13,7 +13,7 @@ require_once 'db.php';
 require_once 'classes/Album.php';
 
 // Haal alle personen op uit de database
-$album = Album::getAll($db);
+$albums = Album::getAll($db);
 
 // Laad de view
 include 'views/Album_view.php';
