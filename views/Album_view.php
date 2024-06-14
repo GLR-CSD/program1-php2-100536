@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="public/css/simple.css">
 </head>
 <body>
-<h1>Personenlijst</h1>
+<h1>Albumlijst</h1>
 <table>
     <tr>
         <th>ID</th>
@@ -26,7 +26,6 @@
             <td><?= $album->getReleaseDate() ?></td>
             <td><a href="<?= $album->getURL() ?>"><?= $album->getURL() ?></a></td>
             <td><img src="public/img/<?= $album->getAfbeelding() ?>" height="60px"/></td>
-            <td><?= $album->getAfbeelding() ?></td>
             <td><?= $album->getPrijs() ?></td>
         </tr>
     <?php endforeach; ?>
@@ -72,6 +71,13 @@
         <textarea id="afbeelding" name="afbeelding" rows="4" cols="50">
             <?= $formValues['opmerkingen'] ?? '' ?>
         </textarea><br>
+
+        <label for="url">Prijs:</label>
+        <input type="url" id="url" name="url" value="<?= $formValues['url'] ?? '' ?>">
+        <?php if (isset($errors['url'])): ?>
+            <span style="color: red;"><?= $errors['url'] ?></span>
+        <?php endif; ?><br>
+
         <input type="submit" value="Toevoegen">
     </form>
 </div>
