@@ -173,6 +173,32 @@ class Album
     {
         $this->prijs = $prijs;
     }
+    public function save(PDO $db): void
+    {
+        // Voorbereiden van de query
+        $stmt = $db->prepare("INSERT INTO Album (Naam, Artiesten, Release_date, URL, Afbeelding, Prijs) VALUES (:naam, :artiesten, :release_date, :url, :afbeelding, :prijs)");
+        $stmt->bindParam(':naam', $this->voornaam);
+        $stmt->bindParam(':artiesten', $this->artiesten);
+        $stmt->bindParam(':release_date', $this->release_date);
+        $stmt->bindParam(':url', $this->url);
+        $stmt->bindParam(':afbeelding', $this->afbeelding);
+        $stmt->bindParam(':prijs', $this->prijs);
+        $stmt->execute();
+    }
 
+    // Methode om een bestaande persoon bij te werken op basis van ID
+    public function update(PDO $db): void
+    {
+        // Voorbereiden van de query
+        $stmt = $db->prepare("UPDATE album SET Naam = :naam, Artiesten = :artiesten, Release_date = :release_date, URL = :url, Afbeelding = :afbeelding, Prijs = :prijs WHERE id = :id");
+        $stmt->bindParam(':id', $this->id);
+        $stmt->bindParam(':naam', $this->naam);
+        $stmt->bindParam(':artiesten', $this->artiesten);
+        $stmt->bindParam(':release_date', $this->release_date);
+        $stmt->bindParam(':url', $this->url);
+        $stmt->bindParam(':afbeelding', $this->afbeelding);
+        $stmt->bindParam(':prijs', $this->prijs);
+        $stmt->execute();
+    }
 
 }

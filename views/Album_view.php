@@ -42,7 +42,7 @@
             </ul>
         </div>
     <?php endif; ?>
-    <form action="toevoegen.php" method="post">
+    <form action="Album_toevoegen.php" method="post">
         <label for="naam">Naam:</label>
         <input type="text" id="naam" name="naam" value="<?= $formValues['naam'] ?? '' ?>" required>
         <?php if (isset($errors['naam'])): ?>
@@ -69,13 +69,13 @@
 
         <label for="afbeelding">afbeelding:</label><br>
         <textarea id="afbeelding" name="afbeelding" rows="4" cols="50">
-            <?= $formValues['opmerkingen'] ?? '' ?>
+            <?= $formValues['afbeelding'] ?? '' ?>
         </textarea><br>
 
         <label for="url">Prijs:</label>
-        <input type="url" id="url" name="url" value="<?= $formValues['url'] ?? '' ?>">
-        <?php if (isset($errors['url'])): ?>
-            <span style="color: red;"><?= $errors['url'] ?></span>
+        <input type="prijs" id="prijs" name="prijs" value="<?= $formValues['prijs'] ?? '' ?>">
+        <?php if (isset($errors['prijs'])): ?>
+            <span style="color: red;"><?= $errors['prijs'] ?></span>
         <?php endif; ?><br>
 
         <input type="submit" value="Toevoegen">
